@@ -1,0 +1,125 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< uk.co.correvate.hr.devops:my-api >------------------
+[INFO] Building my-api 1.0.1.1688594630
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'pushImage' is unknown for plugin 'docker-maven-plugin:0.33.0:build (default-install)'
+[WARNING] Parameter 'pushImage' is unknown for plugin 'docker-maven-plugin:0.33.0:push (default-cli)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ my-api ---
+[INFO] Deleting /Users/onyekachianyanwu/Downloads/interview-devops/my-api/src/main/docker/target
+[INFO] 
+[INFO] --- spring-boot:2.3.1.RELEASE:build-info (default) @ my-api ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ my-api ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource from src/main/resources to src/main/docker/target/classes
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ my-api ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /Users/onyekachianyanwu/Downloads/interview-devops/my-api/src/main/docker/target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ my-api ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/onyekachianyanwu/Downloads/interview-devops/my-api/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ my-api ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /Users/onyekachianyanwu/Downloads/interview-devops/my-api/src/main/docker/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ my-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ my-api ---
+[INFO] Building jar: /Users/onyekachianyanwu/Downloads/interview-devops/my-api/src/main/docker/target/my-api-1.0.1.1688594630.jar
+[INFO] 
+[INFO] --- spring-boot:2.3.1.RELEASE:repackage (default) @ my-api ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] 
+[INFO] --- install:3.1.1:install (default-install) @ my-api ---
+[INFO] Installing /Users/onyekachianyanwu/Downloads/interview-devops/my-api/pom.xml to /Users/onyekachianyanwu/.m2/repository/uk/co/correvate/hr/devops/my-api/1.0.1.1688594630/my-api-1.0.1.1688594630.pom
+[INFO] Installing /Users/onyekachianyanwu/Downloads/interview-devops/my-api/src/main/docker/target/my-api-1.0.1.1688594630.jar to /Users/onyekachianyanwu/.m2/repository/uk/co/correvate/hr/devops/my-api/1.0.1.1688594630/my-api-1.0.1.1688594630.jar
+[INFO] 
+[INFO] --- docker:0.33.0:build (default-install) @ my-api ---
+[INFO] Copying files to /Users/onyekachianyanwu/Downloads/interview-devops/my-api/target/docker/046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22/build/maven
+[WARNING] DOCKER> Dockerfile /Users/onyekachianyanwu/Downloads/interview-devops/my-api/src/main/docker/Dockerfile does not contain an ADD or COPY directive to include assembly created at maven. Ignoring assembly.
+[INFO] Building tar: /Users/onyekachianyanwu/Downloads/interview-devops/my-api/target/docker/046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22/tmp/docker-build.tar
+[INFO] DOCKER> [046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22:latest] "my-api": Created docker-build.tar in 940 milliseconds
+[INFO] DOCKER> Step 1/8 : FROM maven:3.8.4-openjdk-11-slim AS builder
+[INFO] DOCKER> 
+[INFO] DOCKER> ---> da9a1aaba88d
+[INFO] DOCKER> Step 2/8 : WORKDIR /app
+[INFO] DOCKER> 
+[INFO] DOCKER> ---> Using cache
+[INFO] DOCKER> ---> fcafc6f15f3f
+[INFO] DOCKER> Step 3/8 : COPY target/my-api-1.0.1.1688594630.jar /app/
+[INFO] DOCKER> 
+[INFO] DOCKER> ---> 0f75798c37d8
+[INFO] DOCKER> Step 4/8 : FROM openjdk:11-jre-slim
+[INFO] DOCKER> 
+[INFO] DOCKER> ---> 764a04af3eff
+[INFO] DOCKER> Step 5/8 : WORKDIR /app
+[INFO] DOCKER> 
+[INFO] DOCKER> ---> Using cache
+[INFO] DOCKER> ---> b1922e05d6fc
+[INFO] DOCKER> Step 6/8 : COPY --from=builder /app/my-api-1.0.1.1688594630.jar /app/
+[INFO] DOCKER> 
+[INFO] DOCKER> ---> d11bddad8986
+[INFO] DOCKER> Step 7/8 : EXPOSE 8080
+[INFO] DOCKER> 
+[INFO] DOCKER> ---> Running in f99d9b3c5a46
+[INFO] DOCKER> Removing intermediate container f99d9b3c5a46
+[INFO] DOCKER> ---> a9cf7e232636
+[INFO] DOCKER> Step 8/8 : CMD ["java", "-jar", "/app/my-api-1.0.1.1688594630.jar"]
+[INFO] DOCKER> 
+[INFO] DOCKER> ---> Running in c2c391542349
+[INFO] DOCKER> Removing intermediate container c2c391542349
+[INFO] DOCKER> ---> a561075a6629
+[INFO] DOCKER> [Warning] One or more build-args [VERSION] were not consumed
+[INFO] DOCKER> Successfully built a561075a6629
+[INFO] DOCKER> Successfully tagged 046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22:latest
+[INFO] DOCKER> [046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22:latest] "my-api": Built image sha256:a5610
+[INFO] DOCKER> [046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22:latest] "my-api": Removed old image sha256:6cc4b
+[INFO] 
+[INFO] --- docker:0.33.0:push (default-cli) @ my-api ---
+[INFO] DOCKER> It appears that you're using AWS ECR. Consider integrating the AWS SDK in order to make use of common AWS authentication mechanisms, see https://dmp.fabric8.io/#extended-authentication
+[INFO] DOCKER> Credentials helper reply for "docker-credential-desktop" is docker-credential-desktop (github.com/docker/docker-credential-helpers) v0.7.0
+[INFO] DOCKER> The push refers to repository [046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22]
+3b8b92c1dfdb: Preparing   
+17c4cb9960e4: Preparing   
+d7802b8508af: Preparing   
+e3abdc2e9252: Preparing   
+eafe6e032dbd: Preparing   
+92a4e8a3140f: Preparing   
+92a4e8a3140f: Waiting     
+17c4cb9960e4: Layer already exists 
+d7802b8508af: Layer already exists 
+e3abdc2e9252: Layer already exists 
+eafe6e032dbd: Layer already exists 
+3b8b92c1dfdb: Pushing     [>                                                  ]  197.6kB/18.38MB
+92a4e8a3140f: Layer already exists 
+3b8b92c1dfdb: Pushing     [====>                                              ]   1.77MB/18.38MB
+3b8b92c1dfdb: Pushing     [==========>                                        ]  3.737MB/18.38MB
+3b8b92c1dfdb: Pushing     [==============>                                    ]  5.506MB/18.38MB
+3b8b92c1dfdb: Pushing     [===================>                               ]  7.276MB/18.38MB
+3b8b92c1dfdb: Pushing     [========================>                          ]  9.045MB/18.38MB
+3b8b92c1dfdb: Pushing     [============================>                      ]  10.42MB/18.38MB
+3b8b92c1dfdb: Pushing     [=================================>                 ]  12.19MB/18.38MB
+3b8b92c1dfdb: Pushing     [====================================>              ]  13.57MB/18.38MB
+3b8b92c1dfdb: Pushing     [========================================>          ]  14.94MB/18.38MB
+3b8b92c1dfdb: Pushing     [============================================>      ]  16.32MB/18.38MB
+3b8b92c1dfdb: Pushing     [================================================>  ]  17.89MB/18.38MB
+3b8b92c1dfdb: Pushing     [==================================================>]  18.38MB
+3b8b92c1dfdb: Pushed      
+[INFO] DOCKER> latest: digest: sha256:9faa66392028418639c1244f4c1608503c73935f7de8336b26b4648490d64321 size: 1577
+[INFO] DOCKER> Temporary image tag skipped. Target image '046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22:latest' already has registry set or no registry is available
+[INFO] DOCKER> Pushed 046660960196.dkr.ecr.eu-west-2.amazonaws.com/kadiya_22 in 3 seconds 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.683 s
+[INFO] Finished at: 2023-07-05T23:30:44+01:00
+[INFO] ------------------------------------------------------------------------
