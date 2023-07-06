@@ -25,7 +25,7 @@ Output log files `1.0.1_log.txt` stored in `my-api/` folder and `1.0.2_log.txt` 
 5. list of output logs for 1.0: 
     ##### 1.0.1_log.txt 
     ##### 1.0.2_log.txt
-##############################################################################
+#######################################################################################################
 ## 1.1
 ### CI Pipeline Deliverables
 
@@ -42,7 +42,7 @@ Output log files `1.0.1_log.txt` stored in `my-api/` folder and `1.0.2_log.txt` 
 
 5. List of output logs for 1.1: 
     ##### 1.1.1_log.txt  
-##############################################################################
+#######################################################################################################
 ## 1.2 
 ### Docker 
 
@@ -66,7 +66,7 @@ Output log files `1.0.1_log.txt` stored in `my-api/` folder and `1.0.2_log.txt` 
 12. confirm container is running: `docker ps | tee 1.2.3_log.txt`
 13. list of logs in this section: `1.2.1_log.txt`, `1.2.2_log.txt`, `1.2.3_log.txt`
 
-##############################################################################
+#######################################################################################################
 ## 1.3
 ### Docker compose & logging
 Prerequisites:   
@@ -90,7 +90,7 @@ Deliverables
 * See screenshot from Kibana log console showing log entries below.
 ![Click Here](logging-stack/My-Kibana-Dashboard-Result.jpeg)
 
-##############################################################################
+#######################################################################################################
 # 2 - Devops Process
 
 When defining a SDLC for a SaaS application there are some key steps that are involved and they are:
@@ -122,7 +122,7 @@ The code development stage is where the actual implementation of the SaaS applia
 ### 8. Monitoring and logging
  This involves capturing and storing relevant information from the event logs and tracking and analyzing metrics and indicators. These is a crucial stage in the SDLC of SaaS application as it offers insights and visibility into the the application's health, security, performance and availability. This is necessary to ensure that the application runs as expected. There are dedicated tools for monitoring and logging and some of them include prometheus(for scraping metrics), Grafana (For visualizing the metrics as charts, graphs, bar chars etc), ELK STACK or EFK STACK where "F" stands for Fluentbit, which does the same thing as Logstash in the ELK STACK ( for logging, this collects the logging data from the application and sends it to elastic search), Kibana in the ELK stack filters and visualizes the log data on kibana dashboard.
 
-##############################################################################
+#######################################################################################################
 # 3 - AWS & Solution drafting
 
 ### Here are the high level steps I will take to address the teams need of a centralized logging solution for their distributed application.
@@ -148,4 +148,4 @@ Since Fluentbit is now configured, it will collect logs from the different micro
 
 ![Alt text](<../Question 3.jpg>)
 
-##############################################################################
+#######################################################################################################
